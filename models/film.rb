@@ -75,4 +75,14 @@ attr_reader :id
     return customers_hash.map{ |customer| Customer.new(customer)}
   end
 
+  def customer_count()
+    sql = "SELECT COUNT (customers.*) FROM customers
+    INNER JOIN tickets
+    ON tickets.customer_id = customers.id
+    WHERE tickets.film_id = $1"
+    values = [@id]
+    result = SqlRunner.run(sql, values).first
+    return result
+  end
+
 end
