@@ -85,4 +85,13 @@ attr_reader :id
     return result
   end
 
+# Adv Ext
+  # def screenings()
+  #   sql = "SELECT * FROM screenings
+  #   WHERE film_id = $1"
+  #   values = [@id]
+  #   screenings_hash = SqlRunner.run(sql, values)
+  #   return screenings_hash.map{ |screening| Screening.new(screening)}
+  # end
+
 end
